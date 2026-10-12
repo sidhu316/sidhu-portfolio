@@ -1,4 +1,3 @@
-
 "use strict";
 
 /* ========================================
@@ -46,8 +45,7 @@ const projects = [
     category: "shorts",
     label: "YOUTUBE SHORT",
     subtitle: "Short Cinematic Showcase",
-    description:
-      "A short-form cinematic showcase created in Unreal Engine.",
+    description: "A short-form cinematic showcase created in Unreal Engine.",
     tools: "Unreal Engine · Cinematics · Lighting",
     image: "images/bike_thumbnail.png",
     landscapeImage: "images/bike_vedio_thumbnail.png",
@@ -84,7 +82,8 @@ const projects = [
     category: ["lighting", "shorts"],
     label: "YOUTUBE SHORT",
     subtitle: "Short Cinematic Showcase",
-    description: "A new short-form video featured in my 3D artist portfolio.",
+    description:
+      "A new short-form video featured in my 3D artist portfolio.",
     tools: "Unreal Engine · Cinematics · Lighting",
     image: "images/thumak.png",
     landscapeImage: "images/thumak_thumnails.png",
@@ -92,16 +91,12 @@ const projects = [
   }
 ];
 
-
 /* ========================================
    ELEMENT REFERENCES
    ======================================== */
 
 const projectGrid = document.getElementById("projectGrid");
-
-const filterButtons = document.querySelectorAll(
-  ".filter-button, .filter-btn"
-);
+const filterButtons = document.querySelectorAll(".filter-button, .filter-btn");
 
 const projectDialog = document.getElementById("projectDialog");
 const dialogClose = document.getElementById("dialogClose");
@@ -116,7 +111,6 @@ const dialogTools = document.getElementById("dialogTools");
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
-
 /* ========================================
    PROJECT HELPERS
    ======================================== */
@@ -127,9 +121,6 @@ function getProjectCategories(project) {
     : [project.category];
 }
 
-/* Use portrait images in Shorts.
-   Use landscape images everywhere else. */
-
 function getThumbnail(project, filter = "all") {
   if (filter === "shorts") {
     return project.image;
@@ -138,7 +129,6 @@ function getThumbnail(project, filter = "all") {
   return project.landscapeImage || project.image;
 }
 
-
 /* ========================================
    PROJECT GALLERY
    ======================================== */
@@ -146,7 +136,6 @@ function getThumbnail(project, filter = "all") {
 function renderProjects(filter = "all") {
   if (!projectGrid) return;
 
-  // Activate portrait styling only for Shorts.
   document.body.classList.toggle(
     "shorts-filter-active",
     filter === "shorts"
@@ -156,35 +145,24 @@ function renderProjects(filter = "all") {
 
   const filteredProjects = projects.filter(project => {
     if (filter === "all") return true;
-
     return getProjectCategories(project).includes(filter);
   });
 
   filteredProjects.forEach((project, index) => {
     const card = document.createElement("article");
     card.className = "project-card";
-
     card.dataset.category = getProjectCategories(project).join(" ");
-
-    card.style.animationDelay =
-      `${Math.min(index * 70, 350)}ms`;
+    card.style.animationDelay = `${Math.min(index * 70, 350)}ms`;
 
     const openButton = document.createElement("button");
     openButton.type = "button";
     openButton.className = "project-open";
-
-    openButton.setAttribute(
-      "aria-label",
-      `View ${project.title}`
-    );
-
-    /* Thumbnail */
+    openButton.setAttribute("aria-label", `View ${project.title}`);
 
     const thumbnail = document.createElement("div");
     thumbnail.className = "project-thumbnail";
 
     const image = document.createElement("img");
-
     image.src = getThumbnail(project, filter);
     image.alt = `${project.title} thumbnail`;
     image.loading = index < 2 ? "eager" : "lazy";
@@ -220,11 +198,8 @@ function renderProjects(filter = "all") {
       playIndicator.className = "play-indicator";
       playIndicator.textContent = "▶";
       playIndicator.setAttribute("aria-hidden", "true");
-
       thumbnail.appendChild(playIndicator);
     }
-
-    /* Project information */
 
     const info = document.createElement("div");
     info.className = "project-info";
@@ -256,7 +231,6 @@ function renderProjects(filter = "all") {
   });
 }
 
-
 /* ========================================
    CATEGORY FILTERS
    ======================================== */
@@ -274,7 +248,6 @@ filterButtons.forEach(button => {
     renderProjects(button.dataset.filter || "all");
   });
 });
-
 
 /* ========================================
    VIDEO MODAL
@@ -318,9 +291,7 @@ function openProject(project) {
   if (project.youtubeId && dialogYouTube) {
     dialogYouTube.title = `${project.title} video`;
 
-    const isShort =
-      getProjectCategories(project).includes("shorts");
-
+    const isShort = getProjectCategories(project).includes("shorts");
     dialogYouTube.classList.toggle("short-video", isShort);
 
     const videoParams = new URLSearchParams({
@@ -375,7 +346,6 @@ if (projectDialog) {
   });
 }
 
-
 /* ========================================
    MOBILE NAVIGATION
    ======================================== */
@@ -393,7 +363,6 @@ if (menuToggle && navLinks) {
     const isOpen = navLinks.classList.toggle("is-open");
 
     menuToggle.setAttribute("aria-expanded", String(isOpen));
-
     menuToggle.setAttribute(
       "aria-label",
       isOpen ? "Close navigation" : "Open navigation"
@@ -417,16 +386,12 @@ if (menuToggle && navLinks) {
   });
 }
 
-
 /* ========================================
    ACTIVE NAVIGATION
    ======================================== */
 
 const pageSections = document.querySelectorAll("main section[id]");
-
-const pageNavLinks = document.querySelectorAll(
-  ".nav-links .nav-link"
-);
+const pageNavLinks = document.querySelectorAll(".nav-links .nav-link");
 
 if ("IntersectionObserver" in window) {
   const sectionObserver = new IntersectionObserver(
@@ -459,7 +424,6 @@ if ("IntersectionObserver" in window) {
   });
 }
 
-
 /* ========================================
    FOOTER YEAR
    ======================================== */
@@ -469,7 +433,6 @@ const yearElement = document.getElementById("year");
 if (yearElement) {
   yearElement.textContent = new Date().getFullYear();
 }
-
 
 /* ========================================
    LOADING SCREEN
@@ -486,6 +449,95 @@ function hideSiteLoader() {
 window.addEventListener("load", hideSiteLoader);
 window.setTimeout(hideSiteLoader, 1800);
 
+/* ========================================
+   HERO BACKGROUND SLIDESHOW
+   ======================================== */
+
+(function initHeroSlideshow() {
+  const background = document.querySelector(".hero-background");
+
+  if (!background) {
+    console.error(
+      "Slideshow error: .hero-background was not found in index.html."
+    );
+    return;
+  }
+
+  const images = [
+    "images/background%201.png",
+    "images/background%202.png",
+    "images/background%203.png",
+    "images/background%204.png",
+    "images/background%205.png",
+    "images/background%206.png"
+  ];
+
+  background.querySelectorAll(".hero-slide").forEach(slide => {
+    slide.remove();
+  });
+
+  if (getComputedStyle(background).position === "static") {
+    background.style.position = "absolute";
+    background.style.inset = "0";
+  }
+
+  background.style.overflow = "hidden";
+  background.style.backgroundImage = "none";
+
+  const slides = images.map((src, index) => {
+    const slide = document.createElement("div");
+
+    slide.className = "hero-slide";
+
+    Object.assign(slide.style, {
+      position: "absolute",
+      inset: "0",
+      width: "100%",
+      height: "100%",
+      backgroundImage: `url("${src}")`,
+      backgroundPosition: "center 48%",
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      opacity: index === 0 ? "1" : "0",
+      transition: "opacity 1.4s ease-in-out",
+      pointerEvents: "none"
+    });
+
+    slide.setAttribute("aria-hidden", "true");
+    background.appendChild(slide);
+
+    const testImage = new Image();
+
+    testImage.onload = () => {
+      console.log("Slideshow image loaded:", src);
+    };
+
+    testImage.onerror = () => {
+      console.error(
+        "Slideshow image failed to load:",
+        src,
+        "- Check the filename and images folder."
+      );
+    };
+
+    testImage.src = src;
+
+    return slide;
+  });
+
+  let currentIndex = 0;
+
+  window.setInterval(() => {
+    const nextIndex = (currentIndex + 1) % slides.length;
+
+    slides[nextIndex].style.opacity = "1";
+    slides[currentIndex].style.opacity = "0";
+
+    currentIndex = nextIndex;
+  }, 4000);
+
+  console.log("Hero background slideshow initialized.");
+})();
 
 /* ========================================
    INITIALIZE
