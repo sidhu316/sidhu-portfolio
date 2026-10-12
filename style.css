@@ -881,3 +881,15 @@ body.shorts-filter-active .project-thumbnail { aspect-ratio: 9 / 16; }
     width: 100%;
   }
 }
+
+.button-email {
+  border-color: rgba(255, 255, 255, 0.28);
+  color: var(--text);
+  background: transparent;
+}
+
+.button-email:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(198, 229, 138, 0.06);
+}
