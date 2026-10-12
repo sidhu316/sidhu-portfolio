@@ -1,0 +1,285 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0c0b">
+  <meta name="description" content="Siddharth Makwana — 3D Environment Artist specializing in Unreal Engine environments and cinematic visuals.">
+
+  <title>Siddharth Makwana | 3D Environment Artist</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- Loading screen -->
+  <div class="site-loader" id="siteLoader">
+    <span class="loader-mark">
+      SIDDHARTH <span>MAKWANA.</span>
+    </span>
+    <span class="loader-line"></span>
+  </div>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <a class="brand" href="#home" aria-label="Siddharth Makwana home">
+      <span class="brand-first">SIDDHARTH</span>
+      <span class="brand-last">MAKWANA.</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Open navigation" aria-expanded="false"
+      aria-controls="navLinks">
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#work" class="nav-link">Projects</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <a class="nav-cta" href="https://www.artstation.com/sidhu3164"
+      target="_blank" rel="noopener noreferrer">
+      ARTSTATION ↗
+    </a>
+  </header>
+
+  <main>
+
+    <!-- Cinematic hero -->
+    <section class="hero" id="home">
+      <div class="hero-background"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-grain"></div>
+
+      <div class="hero-content">
+        <div class="availability">
+          <span class="status-dot"></span>
+          3D ARTIST · UNREAL ENGINE
+        </div>
+
+        <p class="hero-name">SIDDHARTH MAKWANA</p>
+
+        <h1>
+          WORLDS<br>
+          BEYOND<br>
+          <span>IMAGINATION.</span>
+        </h1>
+
+        <p class="hero-description">
+          Creating immersive environments, cinematic worlds,
+          and atmospheric experiences through real-time 3D art.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#work" class="button button-light">
+            EXPLORE MY WORK <span>↗</span>
+          </a>
+          <a href="#about" class="button button-ghost">
+            ABOUT THE ARTIST
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-caption">
+        <span>ENVIRONMENT ART / REAL-TIME VISUALS</span>
+        <span>PORTFOLIO — 2026</span>
+      </div>
+
+      <a href="#work" class="scroll-indicator">
+        <span></span>
+        SCROLL TO EXPLORE
+      </a>
+    </section>
+
+    <!-- Introduction -->
+    <section class="intro section-shell">
+      <p class="eyebrow">THE ART OF WORLDBUILDING</p>
+      <p class="intro-copy">
+        Every environment tells a story.
+        <span>I create the spaces where those stories come alive.</span>
+      </p>
+    </section>
+
+    <!-- Project gallery -->
+    <section class="work section-shell" id="work">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">SELECTED PROJECTS</p>
+          <h2>Worlds I've <span>created.</span></h2>
+        </div>
+        <p class="section-description">
+          Explore environments, cinematics, architecture,
+          and lighting studies.
+        </p>
+      </div>
+
+      <div class="filter-bar" id="filterBar" aria-label="Filter projects">
+        <button class="filter-button active" data-filter="all" aria-pressed="true">ALL WORK</button>    
+        <button class="filter-button" data-filter="cinematic" aria-pressed="false">CINEMATICS</button>
+        <button class="filter-button" data-filter="lighting" aria-pressed="false">LIGHTING</button>
+        <button class="filter-button" data-filter="shorts" aria-pressed="false">SHORTS</button>
+      </div>
+
+      <div class="project-grid" id="projectGrid"></div>
+
+      <p class="gallery-note">
+        PROJECT SHOWCASE · UNREAL ENGINE ENVIRONMENT ART
+      </p>
+    </section>
+
+    <!-- Artist profile -->
+    <section class="artist section-shell" id="about">
+      <div class="artist-visual">
+        <div class="artist-name-art">
+          <span>SIDDHARTH</span>
+          <span>MAKWANA<span class="accent">.</span></span>
+        </div>
+        <div class="artist-visual-label">3D ARTIST / WORLD BUILDER</div>
+      </div>
+
+      <div class="artist-copy">
+        <p class="eyebrow">BEHIND THE WORLDS</p>
+        <h2>
+          I'm Siddharth Makwana.<br>
+          <span>A 3D Unreal Artist.</span>
+        </h2>
+
+        <p>
+          I create real-time environments and cinematic visuals,
+          bringing together 3D modeling, materials, composition,
+          lighting, and atmosphere.
+        </p>
+
+        <p>
+          My focus is on building believable spaces with a strong
+          visual identity, from natural landscapes to architectural
+          environments and cinematic scenes.
+        </p>
+
+        <div class="skill-list">
+          <span>Maya</span>
+          <span>Unreal Engine</span>
+          <span>Substance Painter</span>
+          <span>Environment Art</span>
+          <span>Lighting</span>
+          <span>Cinematic Rendering</span>
+          <span>Texturing</span>
+        </div>
+
+        <a class="text-link" href="https://www.artstation.com/sidhu3164"
+          target="_blank" rel="noopener noreferrer">
+          DISCOVER MY ARTSTATION <span>↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Creative process -->
+    <section class="process section-shell" id="process">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">MY CREATIVE APPROACH</p>
+          <h2>From concept <span>to world.</span></h2>
+        </div>
+      </div>
+
+      <div class="process-grid">
+        <article class="process-item">
+          <span class="process-number">01</span>
+          <h3>Concept</h3>
+          <p>References, mood, composition, and visual direction.</p>
+        </article>
+
+        <article class="process-item">
+          <span class="process-number">02</span>
+          <h3>Build</h3>
+          <p>Modeling, assets, materials, and environment layout.</p>
+        </article>
+
+        <article class="process-item">
+          <span class="process-number">03</span>
+          <h3>Atmosphere</h3>
+          <p>Lighting, fog, color, and cinematic composition.</p>
+        </article>
+
+        <article class="process-item">
+          <span class="process-number">04</span>
+          <h3>Present</h3>
+          <p>Final renders, camera work, and visual storytelling.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact section-shell" id="contact">
+      <p class="eyebrow">LET'S CONNECT</p>
+
+      <h2>
+        HAVE A WORLD<br>
+        IN <span>MIND?</span>
+      </h2>
+
+      <p>
+        Explore my work and connect with me about projects,
+        collaborations, or creative opportunities.
+      </p>
+
+      <a class="button button-light"
+        href="https://www.artstation.com/sidhu3164"
+        target="_blank" rel="noopener noreferrer">
+        CONNECT ON ARTSTATION <span>↗</span>
+      </a>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <a class="brand footer-brand" href="#home">
+      <span class="brand-first">SIDDHARTH</span>
+      <span class="brand-last">MAKWANA.</span>
+    </a>
+
+    <p>© <span id="year"></span> SIDDHARTH MAKWANA</p>
+    <a href="#home">BACK TO TOP ↑</a>
+  </footer>
+
+  <!-- Project preview modal -->
+  <dialog class="project-dialog" id="projectDialog"
+    aria-labelledby="dialogTitle">
+    <div class="dialog-content">
+      <button class="dialog-close" id="dialogClose"
+        aria-label="Close project preview">✕</button>
+
+      <img id="dialogImage" src="" alt="" hidden>
+
+      <!-- YouTube replaces the local 3.46 GB video -->
+      <iframe id="dialogYouTube"
+        title="Town Environment Unreal Engine cinematic"
+        src="about:blank"
+        allow="autoplay; encrypted-media; picture-in-picture; gyroscope; accelerometer"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+        hidden></iframe>
+
+      <div class="dialog-details">
+        <p class="eyebrow" id="dialogCategory"></p>
+        <h2 id="dialogTitle"></h2>
+        <p id="dialogDescription"></p>
+        <p class="dialog-tools" id="dialogTools"></p>
+      </div>
+    </div>
+  </dialog>
+
+</body>
+</html>
