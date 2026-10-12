@@ -77,6 +77,18 @@ const projects = [
     image: "images/christmass_short.png",
     landscapeImage: "images/christmas.png",
     youtubeId: "47Dmyx3ECis"
+  },
+  {
+    id: "youtube-short-4",
+    title: "Enchanted Garden Dancing Under the Purple Lights",
+    category: ["lighting", "shorts"],
+    label: "YOUTUBE SHORT",
+    subtitle: "Short Cinematic Showcase",
+    description: "A new short-form video featured in my 3D artist portfolio.",
+    tools: "Unreal Engine · Cinematics · Lighting",
+    image: "images/thumak.png",
+    landscapeImage: "images/thumak_thumnails.png",
+    youtubeId: "AQcmXgqtNO4"
   }
 ];
 
