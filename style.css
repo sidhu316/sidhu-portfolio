@@ -625,6 +625,22 @@ body.shorts-filter-active .project-thumbnail { aspect-ratio: 9 / 16; }
   font-size: 12px;
   line-height: 2;
 }
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+.button-resume {
+  border-color: rgba(255, 255, 255, 0.28);
+  color: var(--text);
+  background: transparent;
+}
+.button-resume:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(198, 229, 138, 0.06);
+}
 
 /* ========================================
    FOOTER
@@ -808,6 +824,8 @@ body.shorts-filter-active .project-thumbnail { aspect-ratio: 9 / 16; }
   .process-item h3 { margin-top: 12px; }
   .contact { padding-block: 75px 80px; }
   .contact h2 { font-size: clamp(49px, 12vw, 74px); letter-spacing: -3px; }
+  .contact-actions { align-items: stretch; flex-direction: column; }
+  .contact-actions .button { width: 100%; }
   .footer {
     align-items: flex-start;
     flex-direction: column;
@@ -831,5 +849,35 @@ body.shorts-filter-active .project-thumbnail { aspect-ratio: 9 / 16; }
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.button-resume {
+  border-color: rgba(255, 255, 255, 0.28);
+  color: var(--text);
+  background: transparent;
+}
+
+.button-resume:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(198, 229, 138, 0.06);
+}
+
+@media (max-width: 700px) {
+  .contact-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .contact-actions .button {
+    width: 100%;
   }
 }

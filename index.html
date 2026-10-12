@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +18,6 @@
 
 <body>
 
-  <!-- Loading screen -->
   <div class="site-loader" id="siteLoader">
     <span class="loader-mark">
       SIDDHARTH <span>MAKWANA.</span>
@@ -27,7 +25,6 @@
     <span class="loader-line"></span>
   </div>
 
-  <!-- Navigation -->
   <header class="navbar">
     <a class="brand" href="#home" aria-label="Siddharth Makwana home">
       <span class="brand-first">SIDDHARTH</span>
@@ -56,7 +53,6 @@
 
   <main>
 
-    <!-- Cinematic hero -->
     <section class="hero" id="home">
       <div class="hero-background"></div>
       <div class="hero-shade"></div>
@@ -102,7 +98,6 @@
       </a>
     </section>
 
-    <!-- Introduction -->
     <section class="intro section-shell">
       <p class="eyebrow">THE ART OF WORLDBUILDING</p>
       <p class="intro-copy">
@@ -111,7 +106,6 @@
       </p>
     </section>
 
-    <!-- Project gallery -->
     <section class="work section-shell" id="work">
       <div class="section-heading">
         <div>
@@ -125,7 +119,7 @@
       </div>
 
       <div class="filter-bar" id="filterBar" aria-label="Filter projects">
-        <button class="filter-button active" data-filter="all" aria-pressed="true">ALL WORK</button>    
+        <button class="filter-button active" data-filter="all" aria-pressed="true">ALL WORK</button>
         <button class="filter-button" data-filter="cinematic" aria-pressed="false">CINEMATICS</button>
         <button class="filter-button" data-filter="lighting" aria-pressed="false">LIGHTING</button>
         <button class="filter-button" data-filter="shorts" aria-pressed="false">SHORTS</button>
@@ -138,7 +132,6 @@
       </p>
     </section>
 
-    <!-- Artist profile -->
     <section class="artist section-shell" id="about">
       <div class="artist-visual">
         <div class="artist-name-art">
@@ -184,7 +177,6 @@
       </div>
     </section>
 
-    <!-- Creative process -->
     <section class="process section-shell" id="process">
       <div class="section-heading">
         <div>
@@ -220,7 +212,6 @@
       </div>
     </section>
 
-    <!-- Contact -->
     <section class="contact section-shell" id="contact">
       <p class="eyebrow">LET'S CONNECT</p>
 
@@ -234,16 +225,23 @@
         collaborations, or creative opportunities.
       </p>
 
-      <a class="button button-light"
-        href="https://www.artstation.com/sidhu3164"
-        target="_blank" rel="noopener noreferrer">
-        CONNECT ON ARTSTATION <span>↗</span>
-      </a>
+      <div class="contact-actions">
+        <a class="button button-resume"
+          href="images/Siddharth-Makwana-Resume.pdf"
+          download>
+          DOWNLOAD RESUME <span>↓</span>
+        </a>
+
+        <a class="button button-light"
+          href="https://www.artstation.com/sidhu3164"
+          target="_blank" rel="noopener noreferrer">
+          CONNECT ON ARTSTATION <span>↗</span>
+        </a>
+      </div>
     </section>
 
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <a class="brand footer-brand" href="#home">
       <span class="brand-first">SIDDHARTH</span>
@@ -254,7 +252,6 @@
     <a href="#home">BACK TO TOP ↑</a>
   </footer>
 
-  <!-- Project preview modal -->
   <dialog class="project-dialog" id="projectDialog"
     aria-labelledby="dialogTitle">
     <div class="dialog-content">
@@ -263,7 +260,6 @@
 
       <img id="dialogImage" src="" alt="" hidden>
 
-      <!-- YouTube replaces the local 3.46 GB video -->
       <iframe id="dialogYouTube"
         title="Town Environment Unreal Engine cinematic"
         src="about:blank"
