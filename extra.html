@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0c0b">
+  <title>Japanese Town | Siddharth Makwana</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="gallery.css">
+</head>
+
+<body>
+
+  <header class="gallery-header">
+    <a href="index.html" class="gallery-logo">
+      SIDDHARTH <span>MAKWANA.</span>
+    </a>
+
+    <a href="index.html" class="back-button">
+      ← BACK TO HOME
+    </a>
+  </header>
+
+  <main class="gallery-main">
+    <p class="gallery-label">UNREAL ENGINE / ENVIRONMENT ART</p>
+
+    <h1>RENDER <span>GALLERY.</span></h1>
+
+    <p class="gallery-description">
+      Click the project to view all renders. Use the left and right arrows to explore.
+    </p>
+
+    <div class="gallery-grid">
+      <button class="gallery-item project-card"
+        data-title="Japanese Town"
+        data-images="images/gallery/render-01.png|images/gallery/render-02.png|images/gallery/render-03.png|images/gallery/render-04.png|images/gallery/render-05.png|images/gallery/render-06.png  ">
+        <img src="images/gallery/render-01.png" alt="Japanese Town environment render">
+        <span>JAPANESE TOWN — 6 RENDERS</span>
+      </button>
+
+        <!-- Mahadev -->
+      <button class="gallery-item project-card"
+        data-title="Mahadev"
+        data-images="images/gallery/mahadev-01.png|images/gallery/mahadev-02.png|images/gallery/mahadev-03.png|images/gallery/mahadev-04.png|images/gallery/mahadev-05.png">
+        <img src="images/gallery/mahadev-01.png" alt="Mahadev environment render">
+        <span>MAHADEV — 5 RENDERS</span>
+      </button>
+
+      <button class="gallery-item project-card"
+        data-title="Environment"
+        data-images="images/gallery/environment-01.png|images/gallery/environment-02.png|images/gallery/environment-03.png|images/gallery/environment-04.png">
+        <img src="images/gallery/environment-01.png" alt="Environment art render">
+        <span>ENVIRONMENT — 4 RENDERS</span>
+      </button>
+
+      <button class="gallery-item project-card"
+        data-title="Christmas"
+        data-images="images/gallery/christmas-01.png|images/gallery/christmas-02.png|images/gallery/christmas-03.png|images/gallery/christmas-04.png">
+        <img src="images/gallery/christmas-01.png" alt="Christmas cinematic render">
+        <span>CHRISTMAS — 4 RENDERS</span>
+      </button>
+
+      <button class="gallery-item project-card cyber-city-card"
+        data-title="Cyber City"
+        data-images="images/gallery/cyber-city-02.png|images/gallery/cyber-city-01.png|images/gallery/cyber-city-03.png">
+        <img src="images/gallery/cyber-city-02.png" alt="Cyber City Unreal Engine render">
+        <img src="images/gallery/THIS-IS-LANDSCAPE.png">
+        <span>CYBER CITY — 3 RENDERS</span>
+      </button>
+
+    </div>
+  </main>
+
+  <dialog class="image-popup" id="imagePopup">
+    <button class="popup-close" id="popupClose" aria-label="Close image">
+      ✕
+    </button>
+
+    <button class="popup-arrow popup-prev" id="popupPrev" aria-label="Previous image">
+      ←
+    </button>
+
+    <button class="popup-arrow popup-next" id="popupNext" aria-label="Next image">
+      →
+    </button>
+
+    <img id="popupImage" src="" alt="">
+
+    <div class="popup-info">
+      <p id="popupTitle"></p>
+      <span id="popupCount"></span>
+    </div>
+  </dialog>
+
+  <script>
+    const popup = document.getElementById("imagePopup");
+    const popupImage = document.getElementById("popupImage");
+    const popupTitle = document.getElementById("popupTitle");
+    const popupCount = document.getElementById("popupCount");
+    const popupClose = document.getElementById("popupClose");
+    const popupPrev = document.getElementById("popupPrev");
+    const popupNext = document.getElementById("popupNext");
+
+    let projectImages = [];
+    let currentImage = 0;
+    let projectTitle = "";
+
+    function showImage(index) {
+      currentImage = (index + projectImages.length) % projectImages.length;
+
+      popupImage.src = projectImages[currentImage];
+      popupImage.alt = `${projectTitle} render ${currentImage + 1}`;
+
+      popupTitle.textContent = projectTitle;
+      popupCount.textContent =
+        `${currentImage + 1} / ${projectImages.length}`;
+    }
+
+    document.querySelectorAll(".project-card").forEach(card => {
+      card.addEventListener("click", () => {
+        projectTitle = card.dataset.title;
+        projectImages = card.dataset.images.split("|");
+
+        showImage(0);
+        popup.showModal();
+      });
+    });
+
+    popupNext.addEventListener("click", () => {
+      showImage(currentImage + 1);
+    });
+
+    popupPrev.addEventListener("click", () => {
+      showImage(currentImage - 1);
+    });
+
+    popupClose.addEventListener("click", () => {
+      popup.close();
+    });
+
+    popup.addEventListener("click", event => {
+      if (event.target === popup) {
+        popup.close();
+      }
+    });
+
+    document.addEventListener("keydown", event => {
+      if (!popup.open) return;
+
+      if (event.key === "ArrowRight") {
+        showImage(currentImage + 1);
+      }
+
+      if (event.key === "ArrowLeft") {
+        showImage(currentImage - 1);
+      }
+    });
+  </script>
+
+</body>
+</html>

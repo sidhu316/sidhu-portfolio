@@ -183,6 +183,24 @@ h2 span { color: var(--accent); }
   letter-spacing: 1px;
   transition: border-color 0.2s ease, color 0.2s ease;
 }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-extra {
+  border-color: rgba(198, 229, 138, 0.5);
+  color: var(--accent);
+}
+
+.nav-extra:hover {
+  border-color: var(--accent);
+  background: rgba(198, 229, 138, 0.08);
+}
+
+
 .nav-cta:hover { border-color: var(--accent); color: var(--accent); }
 .menu-toggle {
   display: none;
