@@ -940,3 +940,26 @@ body.shorts-filter-active .project-thumbnail { aspect-ratio: 9 / 16; }
     white-space: nowrap;
   }
 }
+
+.mobile-nav-actions {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .mobile-nav-actions {
+    display: flex;
+    gap: 8px;
+    padding-top: 18px;
+  }
+
+  .mobile-nav-actions .nav-cta {
+    display: flex;
+    min-height: 42px;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 6px;
+    font-size: 8px;
+    white-space: nowrap;
+  }
+}
