@@ -88,7 +88,19 @@ const projects = [
     image: "images/thumak.png",
     landscapeImage: "images/thumak_thumnails.png",
     youtubeId: "AQcmXgqtNO4"
-  }
+  },
+
+  {
+    id: "cinematic-home",
+    title: "Home Cinematic",
+    category: "cinematic",
+    label: "UNREAL ENGINE CINEMATIC",
+    subtitle: "Cinematic Showcase",
+    description: "A cinematic Unreal Engine environment showcase.",
+    tools: "Unreal Engine · Cinematics · Lighting · Environment Art",
+    image: "https://img.youtube.com/vi/H5YnlMjuLoM/hqdefault.jpg",
+    youtubeId: "H5YnlMjuLoM"
+  },
 ];
 
 /* ========================================
