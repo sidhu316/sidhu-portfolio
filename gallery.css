@@ -1,3 +1,7 @@
+/* ========================================
+   GALLERY PAGE
+   ======================================== */
+
 :root {
   --bg: #0b0c0b;
   --text: #f2f2ed;
@@ -12,12 +16,52 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  min-height: 100vh;
   margin: 0;
-  background: var(--bg);
+  overflow-x: hidden;
   color: var(--text);
   font-family: var(--body);
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(198, 229, 138, 0.08),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 85% 35%,
+      rgba(87, 111, 165, 0.10),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #11150f 0%,
+      #0b0c0b 48%,
+      #10121a 100%
+    );
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
 
 .gallery-header {
   display: flex;
@@ -26,12 +70,13 @@ body {
   justify-content: space-between;
   padding: 0 max(24px, calc((100% - 1280px) / 2));
   border-bottom: 1px solid var(--border);
+  background: rgba(11, 12, 11, 0.72);
+  backdrop-filter: blur(14px);
 }
 
 .gallery-logo,
 .back-button {
   color: var(--text);
-  text-decoration: none;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -43,17 +88,37 @@ body {
 
 .back-button {
   color: var(--muted);
+  transition: color 0.2s ease;
 }
 
 .back-button:hover {
   color: var(--accent);
 }
 
+/* ========================================
+   GALLERY INTRO
+   ======================================== */
+
 .gallery-main {
+  position: relative;
+  z-index: 1;
   width: min(1280px, calc(100% - 48px));
   min-height: calc(100vh - 80px);
   margin: 0 auto;
   padding: 80px 0 100px;
+}
+
+.gallery-main::before {
+  position: absolute;
+  z-index: -1;
+  inset: 20px -80px;
+  border: 1px solid rgba(255, 255, 255, 0.035);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 70px 70px;
+  content: "";
+  pointer-events: none;
 }
 
 .gallery-label {
@@ -78,28 +143,42 @@ h1 span {
 }
 
 .gallery-description {
-  max-width: 470px;
+  max-width: 500px;
   margin: 25px 0 50px;
   color: var(--muted);
   font-size: 13px;
   line-height: 1.9;
 }
 
+/* ========================================
+   MASONRY PROJECT GRID
+   ======================================== */
+
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  max-width: none;
+  column-count: 3;
+  column-gap: 18px;
 }
 
 .gallery-item {
-  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 18px;
   padding: 0;
   overflow: hidden;
   border: 1px solid var(--border);
   color: var(--text);
   text-align: left;
-  background: #151714;
+  vertical-align: top;
+  background: rgba(20, 23, 19, 0.94);
   cursor: pointer;
+  break-inside: avoid;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.gallery-item:hover {
+  border-color: rgba(198, 229, 138, 0.65);
+  transform: translateY(-3px);
 }
 
 .gallery-item img {
@@ -111,20 +190,33 @@ h1 span {
 }
 
 .gallery-item:hover img {
-  transform: scale(1.04);
+  transform: scale(1.045);
+}
+
+/* Use class="gallery-item project-card portrait-card"
+   for any vertical 9:16 project. */
+.portrait-card img {
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
 }
 
 .gallery-item span {
   display: block;
-  padding: 16px 18px;
-  font-size: 10px;
+  padding: 14px 15px;
+  color: var(--text);
+  font-size: 9px;
   font-weight: 700;
   letter-spacing: 1px;
+  transition: color 0.25s ease;
 }
 
 .gallery-item:hover span {
   color: var(--accent);
 }
+
+/* ========================================
+   IMAGE POPUP
+   ======================================== */
 
 .image-popup {
   width: min(1500px, 96vw);
@@ -133,6 +225,7 @@ h1 span {
   padding: 0;
   overflow: auto;
   border: 1px solid var(--border);
+  color: var(--text);
   background: #10110f;
 }
 
@@ -162,6 +255,13 @@ h1 span {
   color: white;
   background: rgba(0, 0, 0, 0.76);
   cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.popup-close:hover,
+.popup-arrow:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .popup-close {
@@ -188,18 +288,13 @@ h1 span {
   right: 24px;
 }
 
-.popup-close:hover,
-.popup-arrow:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
 .popup-info {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   padding: 16px 20px;
+  border-top: 1px solid var(--border);
 }
 
 .popup-info p {
@@ -217,10 +312,29 @@ h1 span {
   letter-spacing: 1px;
 }
 
+/* ========================================
+   TABLET
+   ======================================== */
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    column-count: 2;
+  }
+}
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
 @media (max-width: 700px) {
   .gallery-header {
     min-height: 70px;
     padding: 0 18px;
+  }
+
+  .gallery-logo,
+  .back-button {
+    font-size: 8px;
   }
 
   .gallery-main {
@@ -229,9 +343,34 @@ h1 span {
     padding: 55px 0 70px;
   }
 
+  .gallery-main::before {
+    inset: 15px -18px;
+    background-size: 45px 45px;
+  }
+
   h1 {
     font-size: clamp(47px, 14vw, 70px);
     letter-spacing: -3px;
+  }
+
+  .gallery-description {
+    margin-bottom: 35px;
+    font-size: 12px;
+  }
+
+  .gallery-grid {
+    column-count: 2;
+    column-gap: 10px;
+  }
+
+  .gallery-item {
+    margin-bottom: 10px;
+  }
+
+  .gallery-item span {
+    padding: 10px;
+    font-size: 7px;
+    letter-spacing: 0.6px;
   }
 
   .popup-close {
@@ -259,54 +398,90 @@ h1 span {
     padding: 13px 15px;
   }
 
-  .gallery-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  .popup-info p,
+  #popupCount {
+    font-size: 9px;
   }
 }
 
-.gallery-item:has(img[src*="christmas"]) img {
-  aspect-ratio: 9 / 16;
-  object-fit: cover;
-}
-
-.gallery-grid {
-  align-items: start;
-}
-
-.gallery-item {
-  align-self: start;
-}
-
-.portrait-card img {
-  aspect-ratio: 9 / 16;
-  object-fit: cover;
-}
-
-/* Masonry grid for mixed landscape and portrait renders */
-.gallery-grid {
-  display: block;
-  max-width: none;
-  column-count: 3;
-  column-gap: 18px;
-}
-
-.gallery-item {
-  display: inline-block;
-  width: 100%;
-  margin: 0 0 18px;
-  break-inside: avoid;
-  vertical-align: top;
-}
-
-@media (max-width: 900px) {
-  .gallery-grid {
-    column-count: 2;
-  }
-}
-
-@media (max-width: 500px) {
+@media (max-width: 420px) {
   .gallery-grid {
     column-count: 1;
+  }
+}
+
+/* Cinematic animated gallery background */
+body {
+  position: relative;
+  isolation: isolate;
+  background: #080a0a;
+}
+
+body::before {
+  position: fixed;
+  z-index: 0;
+  inset: -20%;
+  background:
+    radial-gradient(
+      circle at 20% 25%,
+      rgba(198, 229, 138, 0.18),
+      transparent 22%
+    ),
+    radial-gradient(
+      circle at 82% 20%,
+      rgba(91, 86, 185, 0.16),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 55% 85%,
+      rgba(29, 109, 116, 0.18),
+      transparent 25%
+    );
+  content: "";
+  filter: blur(45px);
+  opacity: 0.9;
+  pointer-events: none;
+  animation: ambientLights 14s ease-in-out infinite alternate;
+}
+
+body::after {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 90px 90px;
+  content: "";
+  opacity: 0.22;
+  pointer-events: none;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 25%,
+    black 75%,
+    transparent
+  );
+}
+
+.gallery-header,
+.gallery-main {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes ambientLights {
+  from {
+    transform: translate3d(-3%, -2%, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(4%, 3%, 0) scale(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
   }
 }
